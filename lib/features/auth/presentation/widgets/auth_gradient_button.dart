@@ -3,11 +3,11 @@ import 'package:flutter_blog_app/core/theme/app_palette.dart';
 
 class AuthGradientButton extends StatelessWidget {
   final String text;
-  final VoidCallback callbackFunction;
+  final VoidCallback onPressed;
   const AuthGradientButton({
     super.key,
     required this.text,
-    required this.callbackFunction,
+    required this.onPressed,
   });
 
   @override
@@ -25,7 +25,7 @@ class AuthGradientButton extends StatelessWidget {
         ),
       ),
       child: ElevatedButton(
-        onPressed: callbackFunction,
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(300, 50),
           backgroundColor: AppPalette.transparentColor,
