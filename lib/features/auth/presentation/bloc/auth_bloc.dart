@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:flutter_blog_app/core/usecase/usecase.dart';
 import 'package:flutter_blog_app/core/common/entities/user.dart';
-import 'package:flutter_blog_app/features/auth/domain/repository/usecases/current_user.dart';
-import 'package:flutter_blog_app/features/auth/domain/repository/usecases/user_login.dart';
-import 'package:flutter_blog_app/features/auth/domain/repository/usecases/user_singup.dart';
+import 'package:flutter_blog_app/features/auth/domain/usecases/current_user.dart';
+import 'package:flutter_blog_app/features/auth/domain/usecases/user_login.dart';
+import 'package:flutter_blog_app/features/auth/domain/usecases/user_singup.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

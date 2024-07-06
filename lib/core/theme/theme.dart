@@ -15,10 +15,17 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: AppPalette.backgroundColor,
     ),
+    chipTheme: const ChipThemeData(
+      color: MaterialStatePropertyAll(
+        AppPalette.backgroundColor,
+      ),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(32.0),
       enabledBorder: _inputBorder(),
+      border: _inputBorder(),
       focusedBorder: _inputBorder(AppPalette.gradient2),
+      errorBorder: _inputBorder(AppPalette.errorColor),
     ),
   );
 }

@@ -4,6 +4,8 @@ import 'package:flutter_blog_app/core/common/cubits/app_user/app_user_cubit.dart
 import 'package:flutter_blog_app/core/theme/theme.dart';
 import 'package:flutter_blog_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_app/features/auth/presentation/pages/signin_page.dart';
+import 'package:flutter_blog_app/features/blog/presentation/bloc/blog_bloc.dart';
+import 'package:flutter_blog_app/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_blog_app/init_dependencies.dart';
 
 void main() async {
@@ -18,6 +20,9 @@ void main() async {
         ),
         BlocProvider(
           create: (_) => serviceLocator<AuthBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => serviceLocator<BlogBloc>(),
         ),
       ],
       child: const MyApp(),
@@ -51,11 +56,7 @@ class _MyAppState extends State<MyApp> {
         },
         builder: (context, isLoggedIn) {
           if (isLoggedIn) {
-            return const Scaffold(
-              body: Center(
-                child: Text('User is logged in'),
-              ),
-            );
+            return const BlogPage();
           }
           return const SignInPage();
         },
