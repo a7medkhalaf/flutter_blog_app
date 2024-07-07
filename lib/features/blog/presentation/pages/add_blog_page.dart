@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:flutter_blog_app/core/common/widgets/loader.dart';
+import 'package:flutter_blog_app/core/constants/constants.dart';
 import 'package:flutter_blog_app/core/theme/app_palette.dart';
 import 'package:flutter_blog_app/core/utils/pick_image.dart';
 import 'package:flutter_blog_app/core/utils/show_snackbar.dart';
@@ -81,7 +81,7 @@ class _AddBlogPageState extends State<AddBlogPage> {
           if (state is BlogFailure) {
             return showSnackbar(context, state.message);
           }
-          if (state is BlogSuccess) {
+          if (state is BlogUploadSuccess) {
             Navigator.of(context).pushAndRemoveUntil(
               BlogPage.route(),
               (route) => false,
@@ -136,12 +136,7 @@ class _AddBlogPageState extends State<AddBlogPage> {
                       padding: const EdgeInsets.only(top: 16, bottom: 16),
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: [
-                          'Technology',
-                          'Design',
-                          'Business',
-                          'Marketing',
-                        ]
+                        children: Constants.topics
                             .map(
                               (e) => Padding(
                                 padding: const EdgeInsets.all(8.0),
