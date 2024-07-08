@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_app/core/common/widgets/loader.dart';
 import 'package:flutter_blog_app/core/theme/app_palette.dart';
+import 'package:flutter_blog_app/core/utils/show_dialog.dart';
 import 'package:flutter_blog_app/core/utils/show_snackbar.dart';
+import 'package:flutter_blog_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_blog_app/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_blog_app/features/blog/presentation/pages/add_blog_page.dart';
 import 'package:flutter_blog_app/features/blog/presentation/widgets/blog_card.dart';
@@ -29,10 +31,17 @@ class _BlogPageState extends State<BlogPage> {
         title: const Text('Blog App'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add_circle_outline),
             onPressed: () {
-              Navigator.of(context).push(AddBlogPage.route());
+              showAlert(
+                context: context,
+                title: 'Logout',
+                content: 'Are you sure you want to logout?',
+                onConfirm: () {
+                  context.read<AuthBloc>().add(AuthSignOut());
+                },
+              );
             },
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),
@@ -64,6 +73,12 @@ class _BlogPageState extends State<BlogPage> {
           }
           return const SizedBox();
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(AddBlogPage.route());
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

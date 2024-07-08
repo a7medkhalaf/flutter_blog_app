@@ -13,18 +13,21 @@ class AuthField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: isObscureText,
-      decoration: InputDecoration(
-        hintText: hint,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        controller: controller,
+        obscureText: isObscureText,
+        decoration: InputDecoration(
+          hintText: hint,
+        ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "$hint is required!";
+          }
+          return null;
+        },
       ),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "$hint is required!";
-        }
-        return null;
-      },
     );
   }
 }

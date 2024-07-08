@@ -1,16 +1,23 @@
-# flutter_blog_app
+# Flutter Blog App
 
-A new Flutter project.
+This is a Flutter application for managing blogs. The backend and authentication are handled by Supabase, and Hive is used for caching blogs. The app follows the Clean Architecture pattern. GetIt is used for Dependency Injection (DI), and Bloc is used for state management.
+
+
+## Screenshots
+
+## Features
+
+* ``User Authentication``: Users can sign up, log in, and manage their accounts using Supabase.
+* ``Add Blogs``: Users can create blogs by adding a picture, selecting one or more categories, writing a title, and adding content.
+* ``View Blogs``: The home screen displays all blogs. When a user selects a blog, they can see the title, author, date, reading time, picture, and content.
+* ``Caching``: Blogs are cached locally using Hive for offline access.
+* ``State Management``: The app uses Bloc for managing the state of the application.
+* ``Dependency Injection``: GetIt is used for DI to manage dependencies across the app.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run the Diary app locally on your machine, follow these steps:
+1. Clone the repository: git clone https://github.com/a7medkhalaf/flutter_blog_app
+2. Navigate to the project directory: cd flutter_blog_app
+3. Install dependencies: flutter pub get
+4. Run the app: flutter run
+5. This project is a starting point for a Flutter application.

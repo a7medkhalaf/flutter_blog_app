@@ -13,6 +13,7 @@ abstract interface class IAuthRemoteDataSource {
     required String email,
     required String password,
   });
+  Future<void> signOut();
   Future<UserModel?> getCurrentUserData();
 }
 
@@ -75,6 +76,15 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
       final response = await fn();
       if (response.user == null) throw const ServerException('User is null!');
       return UserModel.fromJson(response.user!.toJson());
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      await supabaseClient.auth.signOut();
     } catch (e) {
       throw ServerException(e.toString());
     }

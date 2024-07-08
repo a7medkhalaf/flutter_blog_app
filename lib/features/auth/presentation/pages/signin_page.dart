@@ -54,61 +54,61 @@ class _SignInPageState extends State<SignInPage> {
                 (route) => false,
               );
             }
-            return SingleChildScrollView(
-              child: Form(
-                key: formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Sign In.',
-                      style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+            return Center(
+              child: SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Sign In.',
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge!
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    const SizedBox(height: 30),
-                    AuthField(
-                      hint: 'Email',
-                      controller: emailController,
-                    ),
-                    const SizedBox(height: 15),
-                    AuthField(
-                      hint: 'Password',
-                      controller: passwordController,
-                      isObscureText: true,
-                    ),
-                    const SizedBox(height: 30),
-                    AuthGradientButton(
-                      text: 'Sign In',
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          context.read<AuthBloc>().add(
-                                AuthSignIn(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                ),
-                              );
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 15),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, SignUpPage.route());
-                      },
-                      child: RichText(
-                        text: const TextSpan(
-                          text: 'Don\'t have an account? ',
-                          children: [
-                            TextSpan(
-                                text: 'Sign Up',
-                                style: TextStyle(color: AppPalette.gradient2))
-                          ],
+                      const SizedBox(height: 32),
+                      AuthField(
+                        hint: 'Email',
+                        controller: emailController,
+                      ),
+                      AuthField(
+                        hint: 'Password',
+                        controller: passwordController,
+                        isObscureText: true,
+                      ),
+                      const SizedBox(height: 32),
+                      AuthGradientButton(
+                        text: 'Sign In',
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            context.read<AuthBloc>().add(
+                                  AuthSignIn(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  ),
+                                );
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, SignUpPage.route());
+                        },
+                        child: RichText(
+                          text: const TextSpan(
+                            text: 'Don\'t have an account? ',
+                            children: [
+                              TextSpan(
+                                  text: 'Sign Up',
+                                  style: TextStyle(color: AppPalette.gradient2))
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
