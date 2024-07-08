@@ -1,12 +1,11 @@
 # Flutter Blog App
-
 This is a Flutter application for managing blogs. The backend and authentication are handled by Supabase, and Hive is used for caching blogs. The app follows the Clean Architecture pattern. GetIt is used for Dependency Injection (DI), and Bloc is used for state management.
 
 
 ## Screenshots
+![Untitled design](https://github.com/a7medkhalaf/flutter_blog_app/assets/76059708/bc2f2bb3-13cf-4e20-b3d6-af4a91ed74c9)
 
 ## Features
-
 * ``User Authentication``: Users can sign up, log in, and manage their accounts using Supabase.
 * ``Add Blogs``: Users can create blogs by adding a picture, selecting one or more categories, writing a title, and adding content.
 * ``View Blogs``: The home screen displays all blogs. When a user selects a blog, they can see the title, author, date, reading time, picture, and content.
