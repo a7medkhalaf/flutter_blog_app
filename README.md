@@ -18,5 +18,5 @@ To run the Diary app locally on your machine, follow these steps:
 1. Clone the repository: git clone https://github.com/a7medkhalaf/flutter_blog_app
 2. Navigate to the project directory: cd flutter_blog_app
 3. Install dependencies: flutter pub get
-4. Run the app: flutter run
-5. This project is a starting point for a Flutter application.
+4. Add Supabase secrets in the AppSecrets class.
+5. Run the app: flutter run
