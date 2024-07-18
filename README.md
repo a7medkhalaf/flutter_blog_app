@@ -14,7 +14,7 @@ This is a Flutter application for managing blogs. The backend and authentication
 * ``Dependency Injection``: GetIt is used for DI to manage dependencies across the app.
 
 ## Getting Started
-To run the Diary app locally on your machine, follow these steps:
+To run the Blog app locally on your machine, follow these steps:
 1. Clone the repository: git clone https://github.com/a7medkhalaf/flutter_blog_app
 2. Navigate to the project directory: cd flutter_blog_app
 3. Install dependencies: flutter pub get
